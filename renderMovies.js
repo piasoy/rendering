@@ -1,10 +1,30 @@
 
 function renderMovies(movies) {
-    return `
-        <div class="text-center mt-5">
-            <code>${JSON.stringify(movies)}</code>
-        </div>
-    `
+    // return `
+    //     <div class="text-center mt-5">
+    //         <code>${JSON.stringify(movies)}</code>
+    //     </div>
+    // `
+
+   let movieArr=[];
+    movies.map(function showMovies(movie){
+        movieArr.push(
+            `<div style="display:flex;flow-direction:row;justify-content:space-between;background-color:#F3F3F3;padding:20px;width:60%;margin:auto;margin-bottom:20px">
+                <div><img src="${movie.poster}"/></div>
+                <div style="background-color:white;padding:20px;border-radius:5%;width:50%">
+                    <h2><b>${movie.title}</b></h2>
+                    <p>${movie.year}</p>
+                    <br/>
+                    <h2>IMDB:</h2>
+                    <p>${movie.imdbRating}/10</p>
+                    <br/>
+                    <h2>Rotten Tomatoes</h2>
+                    <p>${(movie.rottenTomatoesRating)*100}</p>
+                </div>
+            </div>`
+        )
+    })
+    return movieArr.join("");
 }
 
 function movies() {
