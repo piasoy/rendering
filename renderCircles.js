@@ -7,7 +7,7 @@ function renderCircles(circles) {
     //         <code>${JSON.stringify(circles)}</code>
     //     </div>
     // `
-$
+
    
 
     let circleArr = [];

@@ -1,7 +1,7 @@
 
 function renderRectangle(rectangle) {
     console.log(rectangle.width)
-     return `<div class="text-center mt-5" style="width:${rectangle.width}px;height:${rectangle.height}px;background-color:${rectangle.color};"></div>`
+     return `<div class="text-center mt-5" style="width:${rectangle.width}px;height:${rectangle.height}px;background-color:${rectangle.color};margin:auto"></div>`
 
     // return `
     //     <div class="text-center mt-5">
