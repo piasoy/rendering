@@ -1,10 +1,41 @@
 
 function renderAlbums(albums) {
-    return `
-        <div class="text-center mt-5">
-            <code>${JSON.stringify(albums)}</code>
-        </div>
-    `
+    // return `
+    //     <div class="text-center mt-5">
+    //         <code>${JSON.stringify(albums)}</code>
+    //     </div>
+    // `
+    let recordsArr =[];
+    let songsArr=[];
+    let records = albums[0].albums;
+
+    records.map(function(record){
+        recordsArr.push(
+            `<hr/>
+            <div style="display:flex;align-items:flex-start;">
+                <img style="width:50px;margin-right:10px" src="${record.albumCover}" />
+                <h4 style="padding-top:26px;;">${record.title}</h4>
+            </div>`
+        )
+
+        record.songs.map(function(song){
+            songsArr.push(
+                `<hr/>
+                <div style="display:flex;justify-content:space-between;">
+                <div style="display:flex;align-items:flex-start;">
+                        <img style="width:25px;margin-right:10px;" src="images/play.png" />
+                        <p>${song.title}</p>
+                    </div>
+                    <p>${song["length"]}</p>           
+                </div>`
+            )
+            console.log(song.title)
+            console.log(song["length"])
+        })
+       
+        recordsArr.push(songsArr.join(''));
+    })
+    return recordsArr.join('');
 }
 
 function albums() {
