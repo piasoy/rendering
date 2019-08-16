@@ -6,15 +6,19 @@ function renderTweets(tweets) {
     //     </div>
     // `
     let tweetArr =[];
+    let checkImg ="images/verified.png";
+    let width = 12
     tweets.map(function(tweet){
+        if (!tweet.user.isVerified){width = 0}
         tweetArr.push(
-           `<div>
-                <div style="display:flex;flow-direction:row;">
-                    <div>
-                        <img style="width:5%" src="${tweet.user.profilePic}"/>
-                   </div>
-                    <div>
-                        <p>${tweet.user.username}</p>
+           `<div style="margin-top:50px">
+                <div style="display:flex;align-items:flex-start;">
+                   <img style="width:5%;" src="${tweet.user.profilePic}"/> 
+                    <div style="margin-left:20px">
+                    <div style="display:flex;align-items:flex-start;">
+                            <p style="margin-bottom:5px; margin-right:5px;">${tweet.user.username}</p>
+                            <img style="width:${width}%;" src="${checkImg}"/> 
+                        </div>
                         <p>${tweet.user.handle}</p>
                     </div>
                 </div>
@@ -22,10 +26,22 @@ function renderTweets(tweets) {
                     <h2>${tweet.text}</h2>
                 </div>
                 <hr/>
-                <div>
-                    <p>${tweet.likes}</p>
-                    <p>${tweet.retweets}</p>
-                    <p>${tweet.replies}</p>
+                <div style="display:flex;flow-direction:row;align-items:flex-start;">
+                    <div style="display:flex;width:10%;">
+                        <img style="width:27%;margin-right:7px;" src="images/comment.png"/> 
+                        <p style="margin-top:7px;margin-bottom:0px">${tweet.likes}K</p>
+                    </div>
+                    <div style="display:flex;width:10%;">
+                        <img style="width:27%;margin-right:7px;" src="images/retweet.png"/> 
+                        <p style="margin-top:7px;margin-bottom:0px">${tweet.retweets}K</p>
+                    </div>
+                    <div style="display:flex;width:10%;">
+                        <img style="width:27%;margin-right:7px;" src="images/heart.png"/> 
+                        <p style="margin-top:7px;margin-bottom:0px">${tweet.replies}K</p>
+                    </div>
+                    <div style="display:flex;width:10%;">
+                        <img style="width:27%;" src="images/envelope.png"/> 
+                    </div>
                 </div>
             </div>`
         )
